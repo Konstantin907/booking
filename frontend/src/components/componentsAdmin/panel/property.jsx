@@ -5,7 +5,7 @@ import FooterTable from "./listElements/footerTable";
 import Axios from "axios";
 import "./panel.scss";
 
-const Property = ({ dataUsers, setDeleteData }) => {
+const Property = ({ dataUsers, setDeleteData, onUserUpdate }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [elementsPerPage] = useState(5);
   const [searchFilter, setSearchFilter] = useState("");
@@ -29,7 +29,7 @@ const Property = ({ dataUsers, setDeleteData }) => {
     Axios.put(`/users/testing/${dataUpdated._id}`, {
       firstName: dataUpdated.firstName,
       lastName: dataUpdated.lastName,
-      email: dataUpdated.email,
+      email: dataUpdated.email
     })
       .then((response) => {
         console.log(response.data);
@@ -37,6 +37,7 @@ const Property = ({ dataUsers, setDeleteData }) => {
       .catch((err) => {
         console.log("You got an error editing data (handleEdit): ", err);
       });
+    onUserUpdate(dataUpdated);
   };
 
   const handleDelete = (userId) => {
@@ -81,7 +82,7 @@ const Property = ({ dataUsers, setDeleteData }) => {
               username={user.username}
               className={index % 2 === 0 ? "evenRow" : ""}
               handleEdit={(dataUpdated) => {
-                handleEdit(dataUpdated);
+                handleEdit({ ...user, ...dataUpdated });
               }}
               handleDelete={() => {
                 handleDelete(user._id);

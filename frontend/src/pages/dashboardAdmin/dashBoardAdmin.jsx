@@ -16,6 +16,26 @@ export default function DashBoardAdmin() {
   const [dataUsers, setDataUsers] = useState([]);
   const [deleteData, setDeleteData] = useState({});
 
+  const onUserUpdate = (updatedData) => {
+    setDataUsers((prev) => {
+      const users = [...prev];
+
+      const foundUserIndex = users.findIndex(
+        (user) => user._id === updatedData._id
+      );
+
+      if (foundUserIndex === -1) {
+        throw new Error(
+          `Hey something went wrong, the id${updatedData._id} is not found`
+        );
+      }
+
+      users.splice(foundUserIndex, 1, updatedData);
+
+      return users;
+    });
+  };
+
   const renderSelectedElement = () => {
     switch (selectedElement) {
       case "dashboard":
@@ -30,6 +50,7 @@ export default function DashBoardAdmin() {
             dataUsers={dataUsers}
             setDeleteData={setDeleteData}
             deleteData={deleteData}
+            onUserUpdate={onUserUpdate}
           />
         );
       case "customer":
