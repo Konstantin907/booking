@@ -93,6 +93,8 @@ const Property = ({ dataUsers, setDeleteData, onUserUpdate }) => {
       </table>
       <FooterTable
         totalElements={dataUsers.length}
+        maxPage={Math.floor(dataUsers.length / elementsPerPage)}
+        currentPage={currentPage}
         nextPage={nextPage}
         prevPage={prevPage}
       />
