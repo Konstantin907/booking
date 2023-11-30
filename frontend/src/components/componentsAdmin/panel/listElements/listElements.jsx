@@ -20,6 +20,7 @@ const List = (props) => {
   };
   const handleEdition = () => {
     setIsEditing(true);
+    setDataEditing(initialValues); //Issue fix it setting the state after prees "edit button"
   };
 
   const SaveEdition = () => {

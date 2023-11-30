@@ -10,10 +10,10 @@
             "img_Url":"/images/home.png",
             "title": "property"
         }, 
-        "order": {
+        "bookings": {
             "id" : 3,
             "img_Url":"/images/order-list.png",
-            "title":"order"
+            "title":"bookings"
         },
         "customer": {
             "id" : 4,

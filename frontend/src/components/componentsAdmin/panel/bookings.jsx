@@ -1,19 +1,17 @@
 import React from "react";
 import DataTable from "./fetchDataToTable/fetchDataToTable.jsx";
-import { usePropertContext } from "../../../context/propertysContext.jsx";
+import { useBookingContext } from "../../../context/bookingsContext.jsx";
 
-export default function Property({ setAddModal, addModal }) {
-  const { property } = usePropertContext();
-  console.log(property);
-
+export default function Bookings({ setAddModal, addModal }) {
+  const { bookingsData } = useBookingContext();
+  console.log(bookingsData);
   const namesOfColumns = {
     c1: "ID",
-    c2: "Address",
-    c3: "City",
-    c4: "Price",
-    c5: "Available",
+    c2: "First Name",
+    c3: "Last Name",
+    c4: "Email",
+    c5: "Edition",
   };
-
   return (
     <>
       <DataTable

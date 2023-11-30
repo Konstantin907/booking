@@ -99,3 +99,17 @@ export const getAllRooms = async (req, res, next) =>  {
 }
 }
 
+
+export const countByCityWithRooms = async (req, res, next) => {
+    try {
+      const result = await Hotel.find({ city: "podgorica" })
+        .populate("rooms")
+        .count();
+  
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+

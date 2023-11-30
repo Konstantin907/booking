@@ -73,6 +73,31 @@ export const countByCity = async (req, res, next) => {
       next(err);
     }
   };
+  /// Model for distinct cities
+  export const distinctCities = async (req, res, next) => {
+   
+    try {
+      const result = await Hotel.aggregate([
+          {
+              $group: {
+                  _id: "$city", // Group by city
+                  hotels: { $push: "$$ROOT" } // Push each document into an array
+              }
+          },
+          {
+              $project: {
+                  _id: 0, // Exclude the _id field
+                  city: "$_id", // Remap '_id' to 'city'
+                  hotels: 1 // Include the array of hotels
+              }
+          }
+      ]);
+
+      res.status(200).json(result);
+  } catch (err) {
+      next(err);
+  }
+};
 
 //Picking basing on type:
 export const countByType = async (req, res, next) => {

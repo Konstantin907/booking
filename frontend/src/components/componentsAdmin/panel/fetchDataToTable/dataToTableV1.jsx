@@ -106,6 +106,8 @@ const TableData = (props) => {
         prevPage={prevPage}
         currentPageValue={currentPage}
         stopPage={Math.ceil(dataFetched.length / elementsPerPage)}
+        initialValue={initialValue}
+        lastValue={lastValue}
       />
     </div>
   );

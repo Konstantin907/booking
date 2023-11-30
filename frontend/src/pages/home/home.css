@@ -15,6 +15,54 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+
+.homeContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    /* font-family: 'Roboto', sans-serif; */
+  }
+  
+  .homeTitle{
+    width: 1024px;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+
+  .homePageGeneral { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  .showMapBtn { 
+    position:fixed;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%,-50%);
+    z-index: 400; 
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 25px;
+    border: none;
+    background-color: rgb(34,34,34);
+    color: white;
+    font-weight: 500;
+    transition: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+    
+  }
+  .showMapBtn:hover { 
+    position: fixed;
+    transform: translate(-50%,-50%) scale(1.1);
+  }
+ 
+=======
 /* Tablet and Smaller Devices (e.g., width <= 768px) */
 @media (max-width: 768px) {
   .homeTitle {
@@ -29,3 +77,4 @@
     padding: 0 10px;
   }
 }
+>>>>>>> 961ca77e82629da6d22b4f8c3a997133192454df

@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./panel.scss";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/authContext";
 
 function Header() {
   //temporal variables :
-  const name = "Abraham Velazquez";
+  const { user } = useContext(AuthContext);
+  const name = user.details.firstName;
+
+  const navigate = useNavigate();
 
   return (
     <div className="headerSection">
@@ -39,6 +44,9 @@ function Header() {
             src={process.env.PUBLIC_URL + "/images/client.png"}
             alt="client charging..."
           />
+          <p className="adminAccess homeAccess" onClick={() => navigate("/")}>
+            Home<span>&#10132;</span>
+          </p>
         </div>
       </div>
     </div>

@@ -12,11 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nivo/bar": "^0.83.1",
-    "bootstrap": "^5.3.2",
-    "concurrently": "^8.2.2",
-    "jsonwebtoken": "^9.0.2",
-    "sass": "^1.69.5",
-    "sass-loader": "^13.3.2"
+    "concurrently": "^8.2.2"
   }
 }

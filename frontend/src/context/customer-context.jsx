@@ -5,9 +5,10 @@ const INITIAL_STATE = {
   customers: [],
   updateCustomer: () => {},
   deleteCustomer: () => {},
+  postCustomer: () => {},
 };
 
-const CustomerContext = createContext(INITIAL_STATE);
+const CustomerContext = createContext(INITIAL_STATE); //step1
 
 export const CustomerContextProvider = ({ children }) => {
   const [customers, setCustomers] = useState([]);
@@ -41,11 +42,46 @@ export const CustomerContextProvider = ({ children }) => {
       });
   };
 
-  const deleteCustomer = (user) => {
+  const deleteCustomer = (user_id) => {
     // delete the user
+    axios
+      .delete(`/users/testing/${user_id}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setCustomers((prev) => {
+      const users = [...prev];
+      const userIndex = users.findIndex((state) => state._id === user_id);
+      users.splice(userIndex, 1);
+
+      return users;
+    });
+  };
+  const postCustomer = (customerData) => {
+    axios
+      .post("/auth/register", {
+        firstName: customerData.firstName,
+        lastName: customerData.lastName,
+        email: customerData.email,
+        password: customerData.password,
+      })
+      .then((response) => {
+        //console.log(response.data);
+        setCustomers((prev) => {
+          const users = [...prev, response.data];
+          return users;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  const value = { customers, updateCustomer, deleteCustomer };
+  const value = { customers, updateCustomer, deleteCustomer, postCustomer };
 
   return (
     <CustomerContext.Provider value={value}>

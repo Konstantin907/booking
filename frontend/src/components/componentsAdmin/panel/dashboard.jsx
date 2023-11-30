@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import NivoPie from "./charts/nivo_pie";
-import NivoBar from "./charts/nivo_bar";
+import NivoLine from "./charts/nivo_bar";
 import UserTable from "./charts/tableCustomer";
 import Axios from "axios";
 
@@ -38,109 +38,274 @@ const DashBoard = (props) => {
 
   const data2 = [
     {
-      country: "AD",
-      "hot dog": 61,
-      "hot dogColor": "hsl(194, 70%, 50%)",
-      burger: 132,
-      burgerColor: "hsl(162, 70%, 50%)",
-      sandwich: 122,
-      sandwichColor: "hsl(302, 70%, 50%)",
-      kebab: 111,
-      kebabColor: "hsl(158, 70%, 50%)",
-      fries: 89,
-      friesColor: "hsl(176, 70%, 50%)",
-      donut: 154,
-      donutColor: "hsl(287, 70%, 50%)",
+      id: "japan",
+      color: "hsl(281, 70%, 50%)",
+      data: [
+        {
+          x: "plane",
+          y: 50,
+        },
+        {
+          x: "helicopter",
+          y: 132,
+        },
+        {
+          x: "boat",
+          y: 181,
+        },
+        {
+          x: "train",
+          y: 35,
+        },
+        {
+          x: "subway",
+          y: 211,
+        },
+        {
+          x: "bus",
+          y: 48,
+        },
+        {
+          x: "car",
+          y: 40,
+        },
+        {
+          x: "moto",
+          y: 159,
+        },
+        {
+          x: "bicycle",
+          y: 174,
+        },
+        {
+          x: "horse",
+          y: 273,
+        },
+        {
+          x: "skateboard",
+          y: 296,
+        },
+        {
+          x: "others",
+          y: 140,
+        },
+      ],
     },
     {
-      country: "AE",
-      "hot dog": 196,
-      "hot dogColor": "hsl(148, 70%, 50%)",
-      burger: 100,
-      burgerColor: "hsl(143, 70%, 50%)",
-      sandwich: 49,
-      sandwichColor: "hsl(340, 70%, 50%)",
-      kebab: 25,
-      kebabColor: "hsl(109, 70%, 50%)",
-      fries: 51,
-      friesColor: "hsl(85, 70%, 50%)",
-      donut: 24,
-      donutColor: "hsl(8, 70%, 50%)",
+      id: "france",
+      color: "hsl(86, 70%, 50%)",
+      data: [
+        {
+          x: "plane",
+          y: 44,
+        },
+        {
+          x: "helicopter",
+          y: 142,
+        },
+        {
+          x: "boat",
+          y: 279,
+        },
+        {
+          x: "train",
+          y: 229,
+        },
+        {
+          x: "subway",
+          y: 87,
+        },
+        {
+          x: "bus",
+          y: 185,
+        },
+        {
+          x: "car",
+          y: 97,
+        },
+        {
+          x: "moto",
+          y: 192,
+        },
+        {
+          x: "bicycle",
+          y: 24,
+        },
+        {
+          x: "horse",
+          y: 89,
+        },
+        {
+          x: "skateboard",
+          y: 5,
+        },
+        {
+          x: "others",
+          y: 288,
+        },
+      ],
     },
     {
-      country: "AF",
-      "hot dog": 199,
-      "hot dogColor": "hsl(332, 70%, 50%)",
-      burger: 3,
-      burgerColor: "hsl(142, 70%, 50%)",
-      sandwich: 197,
-      sandwichColor: "hsl(357, 70%, 50%)",
-      kebab: 160,
-      kebabColor: "hsl(257, 70%, 50%)",
-      fries: 15,
-      friesColor: "hsl(152, 70%, 50%)",
-      donut: 142,
-      donutColor: "hsl(199, 70%, 50%)",
+      id: "us",
+      color: "hsl(109, 70%, 50%)",
+      data: [
+        {
+          x: "plane",
+          y: 250,
+        },
+        {
+          x: "helicopter",
+          y: 239,
+        },
+        {
+          x: "boat",
+          y: 9,
+        },
+        {
+          x: "train",
+          y: 10,
+        },
+        {
+          x: "subway",
+          y: 84,
+        },
+        {
+          x: "bus",
+          y: 240,
+        },
+        {
+          x: "car",
+          y: 180,
+        },
+        {
+          x: "moto",
+          y: 93,
+        },
+        {
+          x: "bicycle",
+          y: 153,
+        },
+        {
+          x: "horse",
+          y: 173,
+        },
+        {
+          x: "skateboard",
+          y: 277,
+        },
+        {
+          x: "others",
+          y: 27,
+        },
+      ],
     },
     {
-      country: "AG",
-      "hot dog": 94,
-      "hot dogColor": "hsl(23, 70%, 50%)",
-      burger: 183,
-      burgerColor: "hsl(186, 70%, 50%)",
-      sandwich: 49,
-      sandwichColor: "hsl(322, 70%, 50%)",
-      kebab: 5,
-      kebabColor: "hsl(249, 70%, 50%)",
-      fries: 152,
-      friesColor: "hsl(141, 70%, 50%)",
-      donut: 139,
-      donutColor: "hsl(264, 70%, 50%)",
+      id: "germany",
+      color: "hsl(191, 70%, 50%)",
+      data: [
+        {
+          x: "plane",
+          y: 140,
+        },
+        {
+          x: "helicopter",
+          y: 295,
+        },
+        {
+          x: "boat",
+          y: 24,
+        },
+        {
+          x: "train",
+          y: 36,
+        },
+        {
+          x: "subway",
+          y: 167,
+        },
+        {
+          x: "bus",
+          y: 83,
+        },
+        {
+          x: "car",
+          y: 202,
+        },
+        {
+          x: "moto",
+          y: 232,
+        },
+        {
+          x: "bicycle",
+          y: 22,
+        },
+        {
+          x: "horse",
+          y: 112,
+        },
+        {
+          x: "skateboard",
+          y: 223,
+        },
+        {
+          x: "others",
+          y: 18,
+        },
+      ],
     },
     {
-      country: "AI",
-      "hot dog": 128,
-      "hot dogColor": "hsl(340, 70%, 50%)",
-      burger: 175,
-      burgerColor: "hsl(87, 70%, 50%)",
-      sandwich: 139,
-      sandwichColor: "hsl(67, 70%, 50%)",
-      kebab: 92,
-      kebabColor: "hsl(326, 70%, 50%)",
-      fries: 126,
-      friesColor: "hsl(316, 70%, 50%)",
-      donut: 64,
-      donutColor: "hsl(332, 70%, 50%)",
-    },
-    {
-      country: "AL",
-      "hot dog": 67,
-      "hot dogColor": "hsl(232, 70%, 50%)",
-      burger: 37,
-      burgerColor: "hsl(29, 70%, 50%)",
-      sandwich: 181,
-      sandwichColor: "hsl(83, 70%, 50%)",
-      kebab: 15,
-      kebabColor: "hsl(87, 70%, 50%)",
-      fries: 110,
-      friesColor: "hsl(122, 70%, 50%)",
-      donut: 99,
-      donutColor: "hsl(220, 70%, 50%)",
-    },
-    {
-      country: "AM",
-      "hot dog": 129,
-      "hot dogColor": "hsl(93, 70%, 50%)",
-      burger: 156,
-      burgerColor: "hsl(138, 70%, 50%)",
-      sandwich: 28,
-      sandwichColor: "hsl(300, 70%, 50%)",
-      kebab: 191,
-      kebabColor: "hsl(211, 70%, 50%)",
-      fries: 78,
-      friesColor: "hsl(254, 70%, 50%)",
-      donut: 159,
-      donutColor: "hsl(299, 70%, 50%)",
+      id: "norway",
+      color: "hsl(42, 70%, 50%)",
+      data: [
+        {
+          x: "plane",
+          y: 48,
+        },
+        {
+          x: "helicopter",
+          y: 28,
+        },
+        {
+          x: "boat",
+          y: 138,
+        },
+        {
+          x: "train",
+          y: 41,
+        },
+        {
+          x: "subway",
+          y: 82,
+        },
+        {
+          x: "bus",
+          y: 243,
+        },
+        {
+          x: "car",
+          y: 171,
+        },
+        {
+          x: "moto",
+          y: 29,
+        },
+        {
+          x: "bicycle",
+          y: 154,
+        },
+        {
+          x: "horse",
+          y: 156,
+        },
+        {
+          x: "skateboard",
+          y: 292,
+        },
+        {
+          x: "others",
+          y: 2,
+        },
+      ],
     },
   ];
 
@@ -154,7 +319,7 @@ const DashBoard = (props) => {
       </div>
       <div className="chartsDashboard">
         <NivoPie data={data1} />
-        <NivoBar data={data2} />
+        <NivoLine data={data2} />
       </div>
       <div className="tableDashboard">
         <UserTable dataUsers={props.dataUsers} />

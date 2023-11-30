@@ -1,23 +1,20 @@
 import React from "react";
 import DataTable from "../panel/fetchDataToTable/fetchDataToTable.jsx";
-import { useCustomerContext } from "../../../context/customer-context.jsx";
 
-const Customer = () => {
-  const { customers, updateCustomer } = useCustomerContext();
-
+const Customer = ({ setAddModal, addModal }) => {
   const namesOfColumns = {
-    id: "ID",
-    firstName: "First Name",
-    lastName: "Last Name",
-    email: "Email",
-    edition: "Edition",
+    c1: "ID",
+    c2: "First Name",
+    c3: "Last Name",
+    c4: "Email",
+    c5: "Edition",
   };
   return (
     <>
       <DataTable
-        state={customers}
-        onUpdate={updateCustomer}
         nameColumns={namesOfColumns}
+        setAddModal={setAddModal}
+        addModal={addModal}
       />
     </>
   );

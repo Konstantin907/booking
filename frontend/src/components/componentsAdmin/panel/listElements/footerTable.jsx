@@ -3,7 +3,9 @@ import React from "react";
 export default function footerTable(props) {
   return (
     <div className="pagination">
-      <p>{`Total : ${props.totalElements}`}</p>
+      <p>{`${props.initialValue + 1} - ${props.lastValue} of ${
+        props.totalElements
+      }`}</p>
       <button onClick={props.prevPage} disabled={props.currentPageValue === 1}>
         &lt;
       </button>

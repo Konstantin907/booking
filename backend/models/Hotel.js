@@ -30,6 +30,9 @@ const HotelSchema = new mongoose.Schema({
     photos: {
         type: [String],
     },
+    imgSrc: {
+        type: String
+    },
     desc: {
         type: String,
         required: true
@@ -42,6 +45,7 @@ const HotelSchema = new mongoose.Schema({
     },
     rooms: {
         type: [String], //ovo znaci da je array
+        ref: "Room"
     },
     cheapestPrice: {
         type: Number,
