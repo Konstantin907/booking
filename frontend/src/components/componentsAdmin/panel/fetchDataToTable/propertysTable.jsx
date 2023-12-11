@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import TableListProperty from "../listElements/listElementsPropertys.jsx";
-import HeaderTableNoAdd from "../listElements/headerTableNoAdd.jsx";
-import FooterTable from "../listElements/footerTable.jsx";
-import "./fetchDataToTable.scss";
 import { usePropertyContext } from "../../../../context/propertysContext.jsx";
+import FooterTable from "../listElements/footerTable.jsx";
+import HeaderTableNoAdd from "../listElements/headerTableNoAdd.jsx";
+import TableListProperty from "../listElements/listElementsPropertys.jsx";
+import "./fetchDataToTable.scss";
 
 //testing Hook  :
 
 const TableData = ({ nameColumns }) => {
   const { property, deleteProperty, updateProperty } = usePropertyContext();
-  console.log(property);
   const [currentPage, setCurrentPage] = useState(1);
   const [elementsPerPage] = useState(5);
   const [searchFilter, setSearchFilter] = useState("");

@@ -1,13 +1,11 @@
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 const Featured = () => {
   const { data, loading, error } = useFetch("/hotels/countByCityWithRooms");
 
   const { data: citiesData } = useFetch("/hotels/distinctCities");
-  console.log(citiesData);
+
   if (loading) return <div>Loading, please wait...</div>;
   if (error) return <div>Error occurred: {error.message}</div>;
 

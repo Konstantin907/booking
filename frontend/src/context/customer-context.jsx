@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   customers: [],
   updateCustomer: () => {},
   deleteCustomer: () => {},
-  postCustomer: () => {},
+  postCustomer: () => {}
 };
 
 const CustomerContext = createContext(INITIAL_STATE); //step1
@@ -67,10 +67,9 @@ export const CustomerContextProvider = ({ children }) => {
         firstName: customerData.firstName,
         lastName: customerData.lastName,
         email: customerData.email,
-        password: customerData.password,
+        password: customerData.password
       })
       .then((response) => {
-        //console.log(response.data);
         setCustomers((prev) => {
           const users = [...prev, response.data];
           return users;

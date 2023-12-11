@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import Axios from "axios";
-import "./register.css";
-import Navbar from "../../components/navbar/Navbar";
-import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
+import "./register.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -13,15 +13,14 @@ export default function Register() {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
+    password: ""
   };
   const [formData, setFormData] = useState(initialValues);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     postDataServer(formData);
-    console.log("form data from Frontend (register component)  : ");
-    console.log(formData);
+
     clean();
     navigate("/login");
   };
@@ -29,7 +28,7 @@ export default function Register() {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
   };
   const clean = () => {
@@ -40,7 +39,7 @@ export default function Register() {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      password: formData.password,
+      password: formData.password
     })
       .then((response) => {
         console.log(response.data);

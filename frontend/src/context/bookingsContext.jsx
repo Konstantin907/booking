@@ -1,11 +1,11 @@
-import { useContext, createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 //INITIAL STATE of context  :
 const INITIAL_STATE = {
   updatedBooking: () => {},
   deleteBooking: () => {},
   bookingsData: [],
-  createBooking: () => {},
+  createBooking: () => {}
 };
 //Step 1  create context  :
 const BookingContext = createContext(INITIAL_STATE);
@@ -45,7 +45,6 @@ export const BookingContextProvider = ({ children }) => {
   const updateBooking = (updatedData) => {
     const { _id, checkInDate, checkOutDate } = updatedData;
     if (updatedData) {
-      //console.log(updatedData);
       axios
         .put(`/bookings/${_id}`, { checkInDate, checkOutDate })
         .then((response) => {

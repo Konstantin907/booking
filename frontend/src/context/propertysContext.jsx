@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 
 const INITIAL_STATE = {
   updateProperty: () => {},
   createProperty: () => {},
   deleteProperty: () => {},
-  property: [],
+  property: []
 };
 
 //step 1 :  createContext
@@ -20,7 +20,6 @@ export const PropertyContextProvider = ({ children }) => {
     axios
       .get("/property/")
       .then((response) => {
-        //console.log(response.data);
         setProperty(response.data);
       })
       .catch((error) => {
@@ -28,11 +27,9 @@ export const PropertyContextProvider = ({ children }) => {
       });
   }, []);
   const deleteProperty = (_id) => {
-    console.log(_id);
     axios
       .delete(`/property/${_id}`)
       .then((res) => {
-        console.log(res.data);
         setProperty((prev) => {
           const newProperties = [...prev];
           const indexPropertyDeleted = newProperties.findIndex(
@@ -50,7 +47,6 @@ export const PropertyContextProvider = ({ children }) => {
   const updateProperty = (updatedData) => {
     const { _id, price, city, address } = updatedData;
     if (updatedData) {
-      //console.log(updatedData);
       axios
         .put(`/property/${_id}`, { price, address, city })
         .then((response) => {

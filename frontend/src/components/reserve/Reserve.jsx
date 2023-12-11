@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "./reserve.css";
-import useFetch from "../../hooks/useFetch";
-import { useContext, useState } from "react";
-import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
+import useFetch from "../../hooks/useFetch";
+import "./reserve.css";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
@@ -56,7 +56,7 @@ const Reserve = ({ setOpen, hotelId }) => {
       await Promise.all(
         selectedRooms.map((roomId) => {
           const res = axios.put(`/rooms/availability/${roomId}`, {
-            dates: alldates,
+            dates: alldates
           });
           return res.data;
         })

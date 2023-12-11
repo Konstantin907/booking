@@ -1,14 +1,14 @@
 import axios from "axios";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
 import { AuthContext } from "../../context/authContext";
 import "./login.css";
-import { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: undefined,
-    password: undefined,
+    password: undefined
   });
 
   //handle change function:
@@ -23,8 +23,7 @@ const Login = () => {
     try {
       const res = await axios.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data }); // res.data.details I am passing
-      //console.log(res.data);
-      //console.log(res.data.isAdmin);
+
       navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });

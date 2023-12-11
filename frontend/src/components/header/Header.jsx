@@ -1,20 +1,18 @@
-import "./header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBed,
   faCalendarDays,
-  faCar,
-  faPerson,
-  faPlane,
+  faPerson
 } from "@fortawesome/free-solid-svg-icons";
-import { DateRange } from "react-date-range";
-import { useContext, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { format } from "date-fns";
+import { useContext, useState } from "react";
+import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/authContext";
+import "./header.css";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -24,8 +22,8 @@ const Header = ({ type }) => {
     {
       startDate: new Date(),
       endDate: new Date(),
-      key: "selection",
-    },
+      key: "selection"
+    }
   ]);
   // options for people/guests:
   const [openOptions, setOpenOptions] = useState(false);
@@ -33,7 +31,7 @@ const Header = ({ type }) => {
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
-    room: 1,
+    room: 1
   });
   //navigate hook for /hotels:
   const navigate = useNavigate();
@@ -44,7 +42,7 @@ const Header = ({ type }) => {
     setOptions((prev) => {
       return {
         ...prev,
-        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1
       };
     });
   };

@@ -1,13 +1,12 @@
-import "./list.css";
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
 import { format } from "date-fns";
+import { useState } from "react";
 import { DateRange } from "react-date-range";
+import { useLocation } from "react-router-dom";
+import Header from "../../components/header/Header";
 import SearchItem from "../../components/itemSearch/SearchItem";
+import Navbar from "../../components/navbar/Navbar";
 import useFetch from "../../hooks/useFetch";
-// import SearchItem from "../../components/searchItem/SearchItem";
+import "./list.css";
 
 const List = () => {
   const location = useLocation();
